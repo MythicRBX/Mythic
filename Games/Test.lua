@@ -3,7 +3,7 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/M
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/MythicHubRBLX/MythicLib/main/InterfaceManager.lua"))()
 
 local Window = Fluent:CreateWindow({
-	Title = "Mythic Hub ",
+	Title = "Mythic",
 	SubTitle = "por Equipe Mythic",
 	TabWidth = 160,
 	Size = UDim2.fromOffset(460, 340),
@@ -41,10 +41,10 @@ do
 	})
 
 	Tabs.Prototipo:AddButton({
-		Title = "Obter Omnitrix Protótipo",
-		Description = "Copie e link para acessar nosso discord!",
+		Title = "Obter",
+		Description = "Obtenha o Omnitrix Protótipo",
 		Callback = function()
-			fireclickdetector(workspace.Map.ScriptsParts.OMCAPSULE.Interact.ProximityPrompt)
+			fireproximityprompt(workspace.Map.ScriptsParts.OMCAPSULE.Interact.ProximityPrompt)
 			Fluent:Notify({
 				Title = "Equipe Mythic",
 				Content = "Omnitrix Protótipo obtido!",
@@ -55,8 +55,8 @@ do
 	})
 end
 
-InterfaceManager:SetFolder("MythicHub")
-SaveManager:SetFolder("MythicHub/OminiX")
+InterfaceManager:SetFolder("Mythic")
+SaveManager:SetFolder("Mythic/OminiX")
 
 InterfaceManager:BuildInterfaceSection(Tabs.Settings)
 SaveManager:BuildConfigSection(Tabs.Settings)
@@ -64,8 +64,8 @@ SaveManager:BuildConfigSection(Tabs.Settings)
 Window:SelectTab(1)
 
 Fluent:Notify({
-    Title = "Mythic Team",
-    Content = "Mythic Hub foi carregado!",
+    Title = "Equipe Mythic",
+    Content = "Mythic foi carregado!",
     Duration = 4
 })
 
