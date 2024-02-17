@@ -63,13 +63,46 @@ do
 		Callback = function()
 			Tween(workspace.Map.ScriptsParts.OMCAPSULE.Interact.Position, 3, function()
 				fireproximityprompt(workspace.Map.ScriptsParts.OMCAPSULE.Interact.ProximityPrompt)
+				task.wait()
+				fireproximityprompt(workspace.Map.ScriptsParts.OMCAPSULE.Interact.ProximityPrompt)
+				task.wait()
+				fireproximityprompt(workspace.Map.ScriptsParts.OMCAPSULE.Interact.ProximityPrompt)
+				task.wait(0.3)
+
+				Fluent:Notify({
+					Title = "Equipe Mythic",
+					Content = "Omnitrix Protótipo obtido!",
+					SubContent = "",
+					Duration = 2
+				})
 			end)
-			Fluent:Notify({
-				Title = "Equipe Mythic",
-				Content = "Omnitrix Protótipo obtido!",
-				SubContent = "",
-				Duration = 2
-			})
+		end
+	})
+	local Dropdown1 = Tabs.Prototipo:AddDropdown("PrototipoAliens", {
+        Title = "Transformar (Bateria infinita)",
+        Values = {"heatblast", "wildmutt", "diamond", "xrl8", "graymatter", "fourarms", "stinkfly", "ripjaws", "ultrat", "ghostfreak", "cannonbolt", "wildvine", "blitzwolfer", "snareoh", "frankenstrike", "upchuck", "eyeguy", "waybig", "ditto", "feedback", "buzzshock", "articguana", "spitter", "clockwork"},
+        Multi = false,
+        Default = nil,
+    })
+	Dropdown1:OnChanged(function(Value)
+        local args = {
+			[1] = "OS",
+			[2] = Value,
+			[3] = (game:GetService("ReplicatedStorage").Aliens.OS[Value].Character[Value].Humanoid.Health - 100),
+			[4] = true
+		}
+
+		game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("AlienMorph"):FireServer(unpack(args))
+    end)
+	Tabs.Prototipo:AddButton({
+		Title = "Destransformar",
+		Description = "Faz você se destransformar do alien atual",
+		Callback = function()
+			local args = {
+				[1] = false
+			}
+
+			game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("UnMorph"):FireServer(unpack(args))
 		end
 	})
 end
