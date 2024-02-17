@@ -1,10 +1,17 @@
-local games = {
-	[{11448431235}] = "https://raw.githubusercontent.com/MythicHubRBLX/Mythic/main/Games/OmniX.lua"
+local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/MythicHubRBLX/MythicLib/main/Fluent.lua"))()
+
+local Games = {
+	[11448431235] = "https://raw.githubusercontent.com/MythicHubRBLX/Mythic/main/Games/OmniX.lua"
 }
 
-for ids, url in next, games do
-	if table.find(ids, game.PlaceId) then
-		loadstring(game:HttpGet(url))()
-		break
-	end
+local Link = Games[game.PlaceId]
+
+if (not Link) then
+	Fluent:Notify({
+		Title = "Equipe Mythic",
+		Content = "Mythic não possui suporte neste jogo!",
+		Duration = 5
+	})
 end
+
+loadstring(game:HttpGet(Link))()
