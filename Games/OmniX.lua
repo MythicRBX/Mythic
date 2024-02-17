@@ -15,7 +15,7 @@ local Window = Fluent:CreateWindow({
 --Lucide Icons https://lucide.dev/icons
 local Tabs = {
 	Inicio = Window:AddTab({ Title = "Início", Icon = "home" }),
-	Prototipo = Window:AddTab({ Title = "Protótipo", Icon = "atom" }),
+	Prototipo = Window:AddTab({ Title = "Protótipo", Icon = "watch" }),
 	Configuracoes = Window:AddTab({ Title = "Configurações", Icon = "settings" })
 }
 
@@ -77,7 +77,6 @@ end
 InterfaceManager:SetFolder("Mythic")
 SaveManager:SetFolder("Mythic/OminiX")
 
-InterfaceManager:BuildInterfaceSection(Tabs.Settings)
 SaveManager:BuildConfigSection(Tabs.Settings)
 
 Window:SelectTab(1)
