@@ -6,11 +6,17 @@ local Games = {
 
 local Link = Games[game.PlaceId]
 
-if (not Link) then
+if not Link then
 	Fluent:Notify({
 		Title = "Equipe Mythic",
 		Content = "Mythic não possui suporte neste jogo!",
 		Duration = 5
+	})
+else
+	Fluent:Notify({
+		Title = "Equipe Mythic",
+		Content = "Mythic está iniciando!",
+		Duration = 4
 	})
 end
 
