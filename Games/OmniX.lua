@@ -1,24 +1,22 @@
 local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/MythicHubRBLX/MythicLib/main/Fluent.lua"))()
-local SaveManager = loadstring(game:HttpGet(
-    "https://raw.githubusercontent.com/MythicHubRBLX/MythicLib/main/SaveManager.lua"))()
-local InterfaceManager = loadstring(game:HttpGet(
-    "https://raw.githubusercontent.com/MythicHubRBLX/MythicLib/main/InterfaceManager.lua"))()
+local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/MythicHubRBLX/MythicLib/main/SaveManager.lua"))()
+local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/MythicHubRBLX/MythicLib/main/InterfaceManager.lua"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "Mythic",
-    SubTitle = "por Equipe Mythic",
-    TabWidth = 160,
-    Size = UDim2.fromOffset(460, 340),
-    Acrylic = false,
-    Theme = "Dark",
-    MinimizeKey = Enum.KeyCode.LeftControl
+	Title = "Mythic",
+	SubTitle = "por Equipe Mythic",
+	TabWidth = 160,
+	Size = UDim2.fromOffset(460, 340),
+	Acrylic = false,
+	Theme = "Dark",
+	MinimizeKey = Enum.KeyCode.LeftControl
 })
 
 -- Lucide Icons https://lucide.dev/icons
 local Tabs = {
-    Inicio = Window:AddTab({Title = "Início", Icon = "home"}),
-    Prototipo = Window:AddTab({Title = "Protótipo", Icon = "watch"}),
-    Recalibrado = Window:AddTab({Title = "Recalibrado", Icon = "timer-reset"})
+	Inicio = Window:AddTab({Title = "Início", Icon = "home"}),
+	Prototipo = Window:AddTab({Title = "Protótipo", Icon = "watch"}),
+	Recalibrado = Window:AddTab({Title = "Recalibrado", Icon = "timer-reset"})
 }
 
 local function Tween(Posicao, Duracao, onCompleteFunction)
@@ -157,14 +155,14 @@ do
                 :FireServer(unpack(args))
         end
     })
-    local Dropdown2 = Tabs.Recalibrado:AddDropdown("RecalibradoAliens", {
+    local Dropdown1 = Tabs.Recalibrado:AddDropdown("RecalibradoAliens", {
         Title = "Transformar (Bateria infinita)",
         Values = {"swampfire", "echoecho", "humungousaur", "jetray", "bigchill", "chromastone", "brainstorm", "spidermonkey", "goop", "waybig", "alienx", "lodestar", "rath", "nanomech", "heatblast", "wildmutt", "diamond", "xrl8", "graymatter", "fourarms", "stinkfly", "ripjaws", "ultrat","ghostfreak", "cannonbolt", "wildvine", "blitzwolfer", "snareoh", "frankenstrike", "upchuck","eyeguy", "ditto", "feedback", "buzzshock", "articguana", "spitter", "clockwork"},
         Multi = false,
         Default = nil
     })
 
-    Dropdown2:OnChanged(function(Value)
+    Dropdown1:OnChanged(function(Value)
         local args = {
             [1] = "AF",
             [2] = Value,
