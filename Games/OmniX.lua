@@ -19,6 +19,23 @@ local Tabs = {
 	Configuracoes = Window:AddTab({ Title = "Configurações", Icon = "settings" })
 }
 
+local function Tween(Posicao, Duracao, onCompleteFunction)
+	local TweenService = game:GetService("TweenService")
+	local HumanoidRootPart = game.Players.LocalPlayer.Character.HumanoidRootPart:WaitForChild("HumanoidRootPart")
+	local TweenInfo = TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, 0, false, Duracao)
+	local goal = {}
+	goal.CFrame = CFrame.new(Posicao)
+	local tween = TweenService:Create(HumanoidRootPart, TweenInfo, goal)
+
+	tween.Completed:Connect(function()
+		if onCompleteFunction then
+			onCompleteFunction()
+		end
+	end)
+
+	tween:Play()
+end
+
 local Options = Fluent.Options
 
 do
@@ -44,8 +61,9 @@ do
 		Title = "Obter",
 		Description = "Obtenha o Omnitrix Protótipo",
 		Callback = function()
-			game.Players.LocalPlayer.Character.HumanoidRootPart:MoveTo(CFrame.new(workspace.Map.ScriptsParts.OMCAPSULE.Interact.CFrame))
-			fireproximityprompt(workspace.Map.ScriptsParts.OMCAPSULE.Interact.ProximityPrompt)
+			Tween(workspace.Map.ScriptsParts.OMCAPSULE.Interact.CFrame, 3, function()
+				fireproximityprompt(workspace.Map.ScriptsParts.OMCAPSULE.Interact.ProximityPrompt)
+			end)
 			Fluent:Notify({
 				Title = "Equipe Mythic",
 				Content = "Omnitrix Protótipo obtido!",
