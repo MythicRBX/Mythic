@@ -61,7 +61,7 @@ do
 		Title = "Obter",
 		Description = "Obtenha o Omnitrix Protótipo",
 		Callback = function()
-			Tween(Vector3.new(workspace.Map.ScriptsParts.OMCAPSULE.Interact.CFrame), 3, function()
+			Tween(workspace.Map.ScriptsParts.OMCAPSULE.Interact.Position, 3, function()
 				fireproximityprompt(workspace.Map.ScriptsParts.OMCAPSULE.Interact.ProximityPrompt)
 			end)
 			Fluent:Notify({
