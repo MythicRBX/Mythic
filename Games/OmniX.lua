@@ -58,7 +58,7 @@ do
 	})
 
 	Tabs.Prototipo:AddButton({
-		Title = "Obter",
+		Title = "Obter ⌛",
 		Description = "Obtenha o Omnitrix Protótipo",
 		Callback = function()
 			Tween(workspace.Map.ScriptsParts.OMCAPSULE.Interact.Position, 3.5, function()
@@ -98,7 +98,7 @@ do
 	})
 
 	Tabs.Recalibrado:AddButton({
-		Title = "Obter (Nível 190)",
+		Title = "Obter (Nível 190) 🕰️",
 		Description = "Obtenha o Omnitrix Recalibrado",
 		Callback = function()
 			Tween(workspace.SpaceStar.TPSpaceShip.TP1.Position, 3.5, function()
@@ -143,7 +143,7 @@ do
 		Title = "Transformar (Bateria infinita)",
 		Values = {"swampfire", "echoecho", "humungousaur", "jetray", "bigchill", "chromastone", "brainstorm", "spidermonkey", "goop", "waybig", "alienx", "lodestar", "rath", "nanomech", "heatblast", "wildmutt", "diamond", "xrl8", "graymatter", "fourarms", "stinkfly", "ripjaws", "ultrat","ghostfreak", "cannonbolt", "wildvine", "blitzwolfer", "snareoh", "frankenstrike", "upchuck","eyeguy", "ditto", "feedback", "buzzshock", "articguana", "spitter", "clockwork"},
 		Multi = false,
-		Default = nil
+		Default = ""
 	})
 
 	DropdownPrototipo:OnChanged(function(Value)
@@ -155,7 +155,7 @@ do
 		}
 
 		game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("AlienMorph"):FireServer(unpack(args))
-		DropdownPrototipo:SetValue(nil)
+		DropdownPrototipo:SetValue("")
 	end)
 	DropdownRecalibrado:OnChanged(function(Value)
 		local args = {
@@ -166,7 +166,7 @@ do
 		}
 
 		game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("AlienMorph"):FireServer(unpack(args))
-		DropdownRecalibrado:SetValue(nil)
+		DropdownRecalibrado:SetValue("")
 	end)
 end
 
