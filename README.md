@@ -8,6 +8,6 @@ Feito para Roblox para facilitar a vida de seus usuários.
 
 # Jogos suportados 📋
 
-First Header  |
+Nomes         |
 ------------- |
 Omni X        |
