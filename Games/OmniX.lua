@@ -44,6 +44,7 @@ do
 		Title = "Obter",
 		Description = "Obtenha o Omnitrix Protótipo",
 		Callback = function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart:MoveTo(CFrame.new(workspace.Map.ScriptsParts.OMCAPSULE.Interact.CFrame))
 			fireproximityprompt(workspace.Map.ScriptsParts.OMCAPSULE.Interact.ProximityPrompt)
 			Fluent:Notify({
 				Title = "Equipe Mythic",
