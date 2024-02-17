@@ -1,8 +1,6 @@
 local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/MythicHubRBLX/MythicLib/main/Fluent.lua"))()
-local SaveManager = loadstring(game:HttpGet(
-    "https://raw.githubusercontent.com/MythicHubRBLX/MythicLib/main/SaveManager.lua"))()
-local InterfaceManager = loadstring(game:HttpGet(
-    "https://raw.githubusercontent.com/MythicHubRBLX/MythicLib/main/InterfaceManager.lua"))()
+local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/MythicHubRBLX/MythicLib/main/SaveManager.lua"))()
+local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/MythicHubRBLX/MythicLib/main/InterfaceManager.lua"))()
 
 local Window = Fluent:CreateWindow({
     Title = "Mythic",
