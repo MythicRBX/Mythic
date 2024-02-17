@@ -74,9 +74,13 @@ do
 	})
 end
 
+InterfaceManager:SetLibrary(Fluent)
+SaveManager:SetLibrary(Fluent)
+
 InterfaceManager:SetFolder("Mythic")
 SaveManager:SetFolder("Mythic/OminiX")
 
+InterfaceManager:BuildInterfaceSection(Tabs.Settings)
 SaveManager:BuildConfigSection(Tabs.Settings)
 
 Window:SelectTab(1)
