@@ -101,7 +101,7 @@ do
 		Title = "Obter (Nível 190) 🕰️",
 		Description = "Obtenha o Omnitrix Recalibrado",
 		Callback = function()
-			Tween(workspace.SpaceStar.TPSpaceShip.TP1.Position, 3.5, function()
+			Tween(workspace.SpaceStar.TPSpaceShip.TP1.Position, 4, function()
 				fireproximityprompt(workspace.SpaceStar.TPSpaceShip.TP1.ProximityPrompt)
 				task.wait()
 				fireproximityprompt(workspace.SpaceStar.TPSpaceShip.TP1.ProximityPrompt)
@@ -109,7 +109,7 @@ do
 				fireproximityprompt(workspace.SpaceStar.TPSpaceShip.TP1.ProximityPrompt)
 				task.wait(7.5)
 
-				Tween(workspace.SpaceStar.RECALIBRATE, 1.5, function()
+				Tween(workspace.SpaceStar.RECALIBRATE.Position, 1.5, function()
 					fireproximityprompt(workspace.SpaceStar.RECALIBRATE.ProximityPrompt)
 					task.wait()
 					fireproximityprompt(workspace.SpaceStar.RECALIBRATE.ProximityPrompt)
