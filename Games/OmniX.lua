@@ -1,6 +1,8 @@
 local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/MythicHubRBLX/MythicLib/main/Fluent.lua"))()
-local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/MythicHubRBLX/MythicLib/main/SaveManager.lua"))()
-local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/MythicHubRBLX/MythicLib/main/InterfaceManager.lua"))()
+local SaveManager = loadstring(game:HttpGet(
+    "https://raw.githubusercontent.com/MythicHubRBLX/MythicLib/main/SaveManager.lua"))()
+local InterfaceManager = loadstring(game:HttpGet(
+    "https://raw.githubusercontent.com/MythicHubRBLX/MythicLib/main/InterfaceManager.lua"))()
 
 local Window = Fluent:CreateWindow({
     Title = "Mythic",
@@ -56,7 +58,9 @@ do
             })
         end
     })
-    ----------------------------------------------------------------------------
+end
+
+do
     Tabs.Prototipo:AddButton({
         Title = "Obter",
         Description = "Obtenha o Omnitrix Protótipo",
@@ -108,7 +112,9 @@ do
         game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("AlienMorph"):FireServer(unpack(args))
         Dropdown1:SetValue(nil)
     end)
-    ----------------------------------------------------------------------------
+end
+
+do
     Tabs.Recalibrado:AddButton({
         Title = "Obter (Nível 190)",
         Description = "Obtenha o Omnitrix Recalibrado",
