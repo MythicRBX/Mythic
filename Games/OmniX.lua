@@ -21,7 +21,7 @@ local Tabs = {
 
 local function Tween(Posicao, Duracao, onCompleteFunction)
 	local TweenService = game:GetService("TweenService")
-	local HumanoidRootPart = game.Players.LocalPlayer.Character.HumanoidRootPart:WaitForChild("HumanoidRootPart")
+	local HumanoidRootPart = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
 	local TweenInfo = TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, 0, false, Duracao)
 	local goal = {}
 	goal.CFrame = CFrame.new(Posicao)
