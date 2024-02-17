@@ -16,8 +16,9 @@ else
 	Fluent:Notify({
 		Title = "Equipe Mythic",
 		Content = "Mythic está iniciando!",
-		Duration = 4
+		Duration = 3
 	})
-end
 
-loadstring(game:HttpGet(Link))()
+	task.wait(1)
+	loadstring(game:HttpGet(Link))()
+end
