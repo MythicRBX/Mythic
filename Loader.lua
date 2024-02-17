@@ -1,5 +1,5 @@
 local games = {
-	[{11448431235}] = "loadstring(game:HttpGet("")()",
+	[{11448431235}] = "https://raw.githubusercontent.com/MythicHubRBLX/Mythic/main/Games/Test.lua"
 }
 
 for ids, url in next, games do
