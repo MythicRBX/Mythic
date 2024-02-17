@@ -1,5 +1,5 @@
 local games = {
-	[{11448431235}] = "https://raw.githubusercontent.com/MythicHubRBLX/Mythic/main/Games/Test.lua"
+	[{11448431235}] = "https://raw.githubusercontent.com/MythicHubRBLX/Mythic/main/Games/OmniX.lua"
 }
 
 for ids, url in next, games do
