@@ -1,7 +1,7 @@
 local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/MythicHubRBLX/MythicLib/main/Fluent.lua"))()
 
 local Games = {
-	[11448431235] = "https://raw.githubusercontent.com/MythicHubRBLX/Mythic/main/Games/OmniX.lua"
+	[5210095481] = "https://raw.githubusercontent.com/MythicHubRBLX/Mythic/main/Games/OmniX.lua"
 }
 
 local Link = Games[game.PlaceId]
