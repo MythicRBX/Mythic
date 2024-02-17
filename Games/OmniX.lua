@@ -78,6 +78,17 @@ do
 			end)
 		end
 	})
+	Tabs.Prototipo:AddButton({
+		Title = "Destransformar",
+		Description = "Faz você se destransformar do alien atual",
+		Callback = function()
+			local args = {
+				[1] = false
+			}
+
+			game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("UnMorph"):FireServer(unpack(args))
+		end
+	})
 	local Dropdown1 = Tabs.Prototipo:AddDropdown("PrototipoAliens", {
         Title = "Transformar (Bateria infinita)",
         Values = {"heatblast", "wildmutt", "diamond", "xrl8", "graymatter", "fourarms", "stinkfly", "ripjaws", "ultrat", "ghostfreak", "cannonbolt", "wildvine", "blitzwolfer", "snareoh", "frankenstrike", "upchuck", "eyeguy", "waybig", "ditto", "feedback", "buzzshock", "articguana", "spitter", "clockwork"},
@@ -94,17 +105,6 @@ do
 
 		game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("AlienMorph"):FireServer(unpack(args))
     end)
-	Tabs.Prototipo:AddButton({
-		Title = "Destransformar",
-		Description = "Faz você se destransformar do alien atual",
-		Callback = function()
-			local args = {
-				[1] = false
-			}
-
-			game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("UnMorph"):FireServer(unpack(args))
-		end
-	})
 end
 
 InterfaceManager:SetLibrary(Fluent)
