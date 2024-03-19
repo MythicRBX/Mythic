@@ -1,6 +1,6 @@
 # Mythic 💎
 
-Feito para Roblox para facilitar a vida de seus usuários.
+Feito para o Roblox para facilitar a vida de seus usuários.
 
 # Acesso 🔗
 
