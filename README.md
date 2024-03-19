@@ -11,4 +11,3 @@ Feito para o Roblox para facilitar a vida de seus usuários.
 Nomes          |
 -------------- |
 Omni X         |
-Muscle Legends |
