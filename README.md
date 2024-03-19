@@ -8,6 +8,7 @@ Feito para Roblox para facilitar a vida de seus usuários.
 
 # Jogos suportados 📋
 
-Nomes         |
-------------- |
-Omni X        |
+Nomes          |
+-------------- |
+Omni X         |
+Muscle Legends |
