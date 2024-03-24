@@ -14,7 +14,7 @@ By Mythic Team :) ❤️
 Por Equipe Mythic! :) ❤️
 ]]--
 
-local VirtualInputManager = game:GetService('VirtualInputManager')
+local VirtualInputManager = game:GetService("VirtualInputManager")
 
 Input = {
 	Apertar = function(Tecla)
