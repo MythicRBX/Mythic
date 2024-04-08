@@ -25,8 +25,8 @@ local FindObj, FindObjOfClass = Get.FindFirstChild, Get.FindFirstChildOfClass
 
 local MythicFunctions = {}
 
-function MythicFunctions:GetPlayer(Player)
-	return Get.Players[Player] or Get.Players.LocalPlayer
+function MythicFunctions:GetPlayer()
+	return Get.Players.LocalPlayer
 end
 
 function MythicFunctions:GetPlayerCount()
@@ -37,21 +37,21 @@ function MythicFunctions:GetPlayerCount()
 	if success then return #result else return nil end
 end
 
-function MythicFunctions:GetCharacter(Player)
-	if MythicFunctions:GetPlayer(Player).Character then
-		return MythicFunctions:GetPlayer(Player).Character
+function MythicFunctions:GetCharacter()
+	if MythicFunctions:GetPlayer().Character then
+		return MythicFunctions:GetPlayer().Character
 	end
 end
 
-function MythicFunctions:GetHumanoid(Player)
-	if MythicFunctions:GetCharacter(Player).Humanoid then
-		return MythicFunctions:GetCharacter(Player).Humanoid
+function MythicFunctions:GetHumanoid()
+	if MythicFunctions:GetCharacter().Humanoid then
+		return MythicFunctions:GetCharacter().Humanoid
 	end
 end
 
-function MythicFunctions:GetHRP(Player)
-	if MythicFunctions:GetCharacter(Player).HumanoidRootPart then
-		return MythicFunctions:GetCharacter(Player).HumanoidRootPart
+function MythicFunctions:GetHRP()
+	if MythicFunctions:GetCharacter().HumanoidRootPart then
+		return MythicFunctions:GetCharacter().HumanoidRootPart
 	end
 end
 
