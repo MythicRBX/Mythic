@@ -21,7 +21,7 @@ local Get = setmetatable({}, {
 	end
 })
 
-local FindObj = Get.FindFirstChild
+local FindObj, FindObjOfClass = Get.FindFirstChild, Get.FindFirstChildOfClass
 
 local MythicFunctions = {}
 
@@ -131,6 +131,33 @@ function MythicFunctions:Notify(Name, Description, ActiveDuration)
 		Content = Description,
 		Duration = ActiveDuration
 	})
+end
+
+
+
+function MythicFunctions:GetClosestMob(Parent, Name, Checks)
+	local TargetDistance = math.huge
+	local Target
+
+	for _, mob in pairs(Parent:GetChildren()) do
+		if not mob:IsA("Model") then return end
+		if not mob.Name == Name then return end
+		if not FindObjOfClass(mob, "Humanoid").Health ~= 0 then return end
+
+		for z_, check in ipairs(Checks) do
+			for x_, child in ipairs(mob:GetChildren()) do
+				if FindObj(mob, child.Name) then continue else break end
+			end
+		end
+
+		local Magnitude = (MythicFunctions:GetHRP().Position - mob.HumanoidRootPart.Position).Magnitude
+
+		if Magnitude < TargetDistance then
+			TargetDistance = Magnitude
+			Target = mob
+		end
+	end
+	return Target
 end
 
 return MythicFunctions
