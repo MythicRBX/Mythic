@@ -27,6 +27,14 @@ function Functions:GetPlayer(Player)
 	return Get.Players[Player] or Get.Players.LocalPlayer
 end
 
+function Functions:GetPlayerCount(Player)
+	local success, result = pcall(function()
+		return Get.Players:GetPlayers()
+	end)
+
+	if success then return #result else return nil end
+end
+
 function Functions:GetCharacter(Player)
 	if Functions:GetPlayer(Player).Character then
 		return Functions:GetPlayer(Player).Character
