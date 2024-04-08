@@ -21,6 +21,8 @@ local Get = setmetatable({}, {
 	end
 })
 
+local FindObj = Get.FindFirstChild
+
 local Functions = {}
 
 function Functions:GetPlayer(Player)
@@ -101,6 +103,10 @@ end
 
 function Functions:UnEquipTool(Tool)
 	Functions:GetCharacter()[Tool].Parent = Functions:GetPlayer().Backpack
+end
+
+function Functions:UsingTool(Tool)
+	if not FindObj(Functions:GetCharacter(), Tool) and FindObj(Functions:GetPlayer().Backpack, Tool) then return false end
 end
 
 function Functions:Notify(Name, Description, ActiveDuration)
