@@ -23,13 +23,13 @@ local Get = setmetatable({}, {
 
 local FindObj = Get.FindFirstChild
 
-local Functions = {}
+local MythicFunctions = {}
 
-function Functions:GetPlayer(Player)
+function MythicFunctions:GetPlayer(Player)
 	return Get.Players[Player] or Get.Players.LocalPlayer
 end
 
-function Functions:GetPlayerCount()
+function MythicFunctions:GetPlayerCount()
 	local success, result = pcall(function()
 		return Get.Players:GetPlayers()
 	end)
@@ -37,89 +37,89 @@ function Functions:GetPlayerCount()
 	if success then return #result else return nil end
 end
 
-function Functions:GetCharacter(Player)
-	if Functions:GetPlayer(Player).Character then
-		return Functions:GetPlayer(Player).Character
+function MythicFunctions:GetCharacter(Player)
+	if MythicFunctions:GetPlayer(Player).Character then
+		return MythicFunctions:GetPlayer(Player).Character
 	end
 end
 
-function Functions:GetHumanoid(Player)
-	if Functions:GetCharacter(Player).Humanoid then
-		return Functions:GetCharacter(Player).Humanoid
+function MythicFunctions:GetHumanoid(Player)
+	if MythicFunctions:GetCharacter(Player).Humanoid then
+		return MythicFunctions:GetCharacter(Player).Humanoid
 	end
 end
 
-function Functions:GetHRP(Player)
-	if Functions:GetCharacter(Player).HumanoidRootPart then
-		return Functions:GetCharacter(Player).HumanoidRootPart
+function MythicFunctions:GetHRP(Player)
+	if MythicFunctions:GetCharacter(Player).HumanoidRootPart then
+		return MythicFunctions:GetCharacter(Player).HumanoidRootPart
 	end
 end
 
-function Functions:AnchorHRP(Value)
-	Functions:GetHRP().Anchored = Value
+function MythicFunctions:AnchorHRP(Value)
+	MythicFunctions:GetHRP().Anchored = Value
 end
 
-function Functions:TweenPlayerToPart(Part, TweenSpeed, UntilNot)
+function MythicFunctions:TweenPlayerToPart(Part, TweenSpeed, UntilNot)
 	local CFrameValue = Instance.new("CFrameValue")
 	CFrameValue.Value = Get.Players.Player.Character.HumanoidRootPart.CFrame
 
-	local Tween = Get.TweenService:Create(CFrameValue, TweenInfo.new((Functions:GetHRP().Position - Part.Position).Magnitude / TweenSpeed, Enum.EasingStyle.Linear, Enum.EasingDirection.Out, 0, false, 0), {Value = Part.Position})
+	local Tween = Get.TweenService:Create(CFrameValue, TweenInfo.new((MythicFunctions:GetHRP().Position - Part.Position).Magnitude / TweenSpeed, Enum.EasingStyle.Linear, Enum.EasingDirection.Out, 0, false, 0), {Value = Part.Position})
 	Tween:Play()
-	Functions:AnchorHRP(false)
+	MythicFunctions:AnchorHRP(false)
 
 	local Completed = false
 	Tween.Completed:Connect(function()
 		task.wait(0.5)
 		Completed = true
-		Functions:AnchorHRP(true)
+		MythicFunctions:AnchorHRP(true)
 	end)
 
 	while not Completed do
 		if not UntilNot then
 			if Get.Players.Player.Character.Humanoid.Health <= 0 then
 				Tween:Cancel()
-				Functions:AnchorHRP(false)
+				MythicFunctions:AnchorHRP(false)
 				break
 			end
 		else
 			if Get.Players.Player.Character.Humanoid.Health <= 0 or not UntilNot then
 				Tween:Cancel()
-				Functions:AnchorHRP(false)
+				MythicFunctions:AnchorHRP(false)
 				break
 			end
 		end
 
 		Get.Players.Player.Character.HumanoidRootPart.CFrame = CFrameValue.Value
-		Functions:AnchorHRP(false)
+		MythicFunctions:AnchorHRP(false)
 		task.wait()
 	end
 
 	CFrameValue:Destroy()
 end
 
-function Functions:TpPlayerToPart(Part)
-	Functions:GetHRP().CFrame = Part.Value
+function MythicFunctions:TpPlayerToPart(Part)
+	MythicFunctions:GetHRP().CFrame = Part.Value
 end
 
-function Functions:PressKey(KeyCode, options)
+function MythicFunctions:PressKey(KeyCode, options)
 	Get.VirtualInputManager:SendKeyEvent(true, KeyCode, false, game)
 	task.wait(options.Duration or 0.005)
 	Get.VirtualInputManager:SendKeyEvent(false, KeyCode, false, game)
 end
 
-function Functions:EquipTool(Tool)
-	Functions:GetPlayer().Backpack[Tool].Parent = Functions:GetCharacter()
+function MythicFunctions:EquipTool(Tool)
+	MythicFunctions:GetPlayer().Backpack[Tool].Parent = MythicFunctions:GetCharacter()
 end
 
-function Functions:UnEquipTool(Tool)
-	Functions:GetCharacter()[Tool].Parent = Functions:GetPlayer().Backpack
+function MythicFunctions:UnEquipTool(Tool)
+	MythicFunctions:GetCharacter()[Tool].Parent = MythicFunctions:GetPlayer().Backpack
 end
 
-function Functions:UsingTool(Tool)
-	if not FindObj(Functions:GetCharacter(), Tool) and FindObj(Functions:GetPlayer().Backpack, Tool) then return false end
+function MythicFunctions:UsingTool(Tool)
+	if not FindObj(MythicFunctions:GetCharacter(), Tool) and FindObj(MythicFunctions:GetPlayer().Backpack, Tool) then return false end
 end
 
-function Functions:Notify(Name, Description, ActiveDuration)
+function MythicFunctions:Notify(Name, Description, ActiveDuration)
 	local title = Name or "Equipe Mythic"
 
 	Fluent:Notify({
@@ -129,4 +129,4 @@ function Functions:Notify(Name, Description, ActiveDuration)
 	})
 end
 
-return Functions
+return MythicFunctions
