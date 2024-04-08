@@ -101,9 +101,9 @@ function MythicFunctions:TpPlayerToPart(Part)
 	MythicFunctions:GetHRP().CFrame = Part.Value
 end
 
-function MythicFunctions:PressKey(KeyCode, options)
+function MythicFunctions:PressKey(KeyCode, Duration)
 	Get.VirtualInputManager:SendKeyEvent(true, KeyCode, false, game)
-	task.wait(options.Duration or 0.005)
+	task.wait(Duration or 0.005)
 	Get.VirtualInputManager:SendKeyEvent(false, KeyCode, false, game)
 end
 
