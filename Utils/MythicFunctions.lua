@@ -74,7 +74,7 @@ end
 
 function Functions:PressKey(KeyCode, options)
 	Get.VirtualInputManager:SendKeyEvent(true, KeyCode, false, game)
-	task.wait(options.Duration or 0)
+	task.wait(options.Duration or 0.005)
 	Get.VirtualInputManager:SendKeyEvent(false, KeyCode, false, game)
 end
 
