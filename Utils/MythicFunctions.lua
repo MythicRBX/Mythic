@@ -116,7 +116,7 @@ function MythicFunctions:UnEquipTool(Tool)
 end
 
 function MythicFunctions:UsingTool(Tool)
-	if not FindObj(MythicFunctions:GetCharacter(), Tool) and FindObj(MythicFunctions:GetPlayer().Backpack, Tool) then return false end
+	if not FindObj(MythicFunctions:GetCharacter(), Tool) and FindObj(MythicFunctions:GetPlayer().Backpack, Tool) then return false else return true end
 end
 
 function MythicFunctions:Notify(Name, Description, ActiveDuration)
