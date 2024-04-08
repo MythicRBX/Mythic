@@ -115,6 +115,10 @@ function MythicFunctions:UnEquipTool(Tool)
 	MythicFunctions:GetCharacter()[Tool].Parent = MythicFunctions:GetPlayer().Backpack
 end
 
+function MythicFunctions:GetEquippedTool(Tool)
+	return MythicFunctions:GetCharacter()[Tool]
+end
+
 function MythicFunctions:UsingTool(Tool)
 	if not FindObj(MythicFunctions:GetCharacter(), Tool) and FindObj(MythicFunctions:GetPlayer().Backpack, Tool) then return false else return true end
 end
