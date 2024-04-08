@@ -21,10 +21,19 @@ local Get = setmetatable({}, {
 	end
 })
 
-local Functions = {
-	String = {},
-	Table = {},
-}
+local Functions = {}
+
+function Functions:GetPlayer(Player)
+	return Get.Players[Player] or Get.Players.LocalPlayer
+end
+
+function Functions:GetCharacter(Player)
+	if Functions:GetPlayer(Player).Character then
+		return Functions:GetPlayer(Player).Character
+	end
+
+	return nil
+end
 
 function Functions:AnchorHRP(HRP, Value)
 	HRP.Anchored = Value
@@ -47,20 +56,20 @@ function Functions:TweenPlayerToPart(HRP, Part, TweenSpeed, UntilNot)
 
 	while not Completed do
 		if not UntilNot then
-			if Get.Playeres.Player.Character.Humanoid.Health <= 0 then
+			if Get.Players.Player.Character.Humanoid.Health <= 0 then
 				Tween:Cancel()
 				Functions:AnchorHRP(HRP, false)
 				break
 			end
 		else
-			if Get.Playeres.Player.Character.Humanoid.Health <= 0 or not UntilNot then
+			if Get.Players.Player.Character.Humanoid.Health <= 0 or not UntilNot then
 				Tween:Cancel()
 				Functions:AnchorHRP(HRP, false)
 				break
 			end
 		end
 
-		Get.Playeres.Player.Character.HumanoidRootPart.CFrame = CFrameValue.Value
+		Get.Players.Player.Character.HumanoidRootPart.CFrame = CFrameValue.Value
 		Functions:AnchorHRP(HRP, false)
 		task.wait()
 	end
@@ -76,6 +85,14 @@ function Functions:PressKey(KeyCode, options)
 	Get.VirtualInputManager:SendKeyEvent(true, KeyCode, false, game)
 	task.wait(options.Duration or 0.005)
 	Get.VirtualInputManager:SendKeyEvent(false, KeyCode, false, game)
+end
+
+function Functions:EquipTool(Tool)
+	Functions:GetPlayer().Backpack[Tool].Parent = Functions:GetCharacter()
+end
+
+function Functions:UnEquipTool(Tool)
+	Functions:GetCharacter()[Tool].Parent = Functions:GetPlayer().Backpack
 end
 
 function Functions:Notify(Name, Description, ActiveDuration)
