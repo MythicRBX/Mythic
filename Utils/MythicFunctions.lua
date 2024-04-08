@@ -41,54 +41,64 @@ function Functions:GetCharacter(Player)
 	if Functions:GetPlayer(Player).Character then
 		return Functions:GetPlayer(Player).Character
 	end
-
-	return nil
 end
 
-function Functions:AnchorHRP(HRP, Value)
-	HRP.Anchored = Value
+function Functions:GetHumanoid(Player)
+	if Functions:GetCharacter(Player).Humanoid then
+		return Functions:GetCharacter(Player).Humanoid
+	end
+end
+
+function Functions:GetHRP(Player)
+	if Functions:GetCharacter(Player).HumanoidRootPart then
+		return Functions:GetCharacter(Player).HumanoidRootPart
+	end
+end
+
+function Functions:AnchorHRP(Value)
+	Functions:GetHRP().Anchored = Value
 end
 
 function Functions:TweenPlayerToPart(HRP, Part, TweenSpeed, UntilNot)
 	local CFrameValue = Instance.new("CFrameValue")
 	CFrameValue.Value = Get.Players.Player.Character.HumanoidRootPart.CFrame
 
-	local Tween = Get.TweenService:Create(CFrameValue, TweenInfo.new((HRP.Position - Part.Position).Magnitude / TweenSpeed, Enum.EasingStyle.Linear, Enum.EasingDirection.Out, 0, false, 0), {Value = Part.Position})
+	local Tween = Get.TweenService:Create(CFrameValue, TweenInfo.new((Functions:GetHRP().Position - Part.Position).Magnitude / TweenSpeed, Enum.EasingStyle.Linear, Enum.EasingDirection.Out, 0, false, 0), {Value = Part.Position})
 	Tween:Play()
-	Functions:AnchorHRP(HRP, false)
+	Functions:AnchorHRP(false)
 
 	local Completed = false
 	Tween.Completed:Connect(function()
 		task.wait(0.5)
 		Completed = true
-		Functions:AnchorHRP(HRP, true)
+		Functions:AnchorHRP(true)
 	end)
 
 	while not Completed do
 		if not UntilNot then
 			if Get.Players.Player.Character.Humanoid.Health <= 0 then
 				Tween:Cancel()
-				Functions:AnchorHRP(HRP, false)
+				Functions:AnchorHRP(false)
 				break
 			end
 		else
 			if Get.Players.Player.Character.Humanoid.Health <= 0 or not UntilNot then
 				Tween:Cancel()
-				Functions:AnchorHRP(HRP, false)
+				Functions:AnchorHRP(false)
 				break
 			end
 		end
 
 		Get.Players.Player.Character.HumanoidRootPart.CFrame = CFrameValue.Value
-		Functions:AnchorHRP(HRP, false)
+		Functions:AnchorHRP(false)
 		task.wait()
 	end
 
 	CFrameValue:Destroy()
 end
 
-function Functions:TpPlayerToPart(HRP, Part)
-	HRP.CFrame = Part.Value
+function Functions:TpPlayerToPart(Part)
+	Functions:GetHRP().CFrame = Part.Value
 end
 
 function Functions:PressKey(KeyCode, options)
