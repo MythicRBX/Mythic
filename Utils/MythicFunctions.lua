@@ -59,7 +59,7 @@ function Functions:AnchorHRP(Value)
 	Functions:GetHRP().Anchored = Value
 end
 
-function Functions:TweenPlayerToPart(HRP, Part, TweenSpeed, UntilNot)
+function Functions:TweenPlayerToPart(Part, TweenSpeed, UntilNot)
 	local CFrameValue = Instance.new("CFrameValue")
 	CFrameValue.Value = Get.Players.Player.Character.HumanoidRootPart.CFrame
 
