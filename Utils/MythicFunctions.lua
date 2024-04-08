@@ -1,3 +1,19 @@
+--[[
+
+                                                                                           
+ #   #    #            ###   #        #        #      #                               #    
+ #   #                #   #  #                 #      #                         #      #   
+ #   #   ##           #      #   #   ##     ## #   ## #   ###   # ##           ###      #  
+ #####    #            ###   #  #     #    #  ##  #  ##  #   #  ##  #           #       #  
+ #   #    #               #  ###      #    #   #  #   #  #####  #                       #  
+ #   #    #           #   #  #  #     #    #  ##  #  ##  #      #               #      #   
+ #   #   ###           ###   #   #   ###    ## #   ## #   ###   #              ###    #    
+                                                                                #          
+                                                                                           
+By Mythic Team :) ❤️
+Por Equipe Mythic! :) ❤️
+]]--
+
 local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/MythicRBX/MythicLib/main/Addons/Fluent.lua"))()
 local Get = setmetatable({}, {
 	__index = function(a, b)
