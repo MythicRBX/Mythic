@@ -29,7 +29,7 @@ function Functions:GetPlayer(Player)
 	return Get.Players[Player] or Get.Players.LocalPlayer
 end
 
-function Functions:GetPlayerCount(Player)
+function Functions:GetPlayerCount()
 	local success, result = pcall(function()
 		return Get.Players:GetPlayers()
 	end)
