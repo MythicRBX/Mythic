@@ -8,7 +8,8 @@ Feito para o Roblox para facilitar a vida de seus usuários.
 
 # Jogos suportados 📋
 
-Nomes          |
--------------- |
-Omni X         |
-Rock Fruit     |
+Nomes                         |
+----------------------------- |
+Omni X                        |
+Rock Fruit                    |
+Beat Up Dummies Simulator     |
